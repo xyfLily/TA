@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Write your comments here-->
+  <head>
+  	<meta charset ="UTF-8">
+    <link rel ='stylesheet' type="text/css" href= "myStyles.css">
+    <script type="text/javascript">
+      function updateDays(){
+        
+        alert("it works!")
+        today= new Date();
+        for(i=0; i<3 ; i++){
+          //rest of code in this block
+          submission = document.getElementById("date["+i+"]").innerHTML;
+          dd= submission.substring(0,2);
+          mm= submission.substring(3,5);
+          yyyy = submission.substring(6,10);
+          submissionDate = new Date(mm +"/" +dd +"/"+yyyy);
+          diffTime = Math.abs(submissionDate.getTime()- today.getTime());
+          diffDays = Math.ceil(diffTime / (1000* 60 * 60 *24));
+          if(submissionDate.getTime()>= today.getTime())
+              days =" days";
+          else
+            days =" days overdue";
+          document.getElementById("dueDays["+i+"]").innerHTML = diffDays +days
+
+        }
+      }
+    </script>
+
+
+  </head >
+
+  <body style ="background-color:white;">
+      <header>
+  	     <h1 style= "line-height:80px"> ABOUT MY COURSES </h1>
+       </header>
+
+         <nav>
+       	    <li><a href = "index.html" >Submission Dates </a></li>
+       	    <li><a href = "moduleTutors.html" >Module Tutors </a></li>
+             <li><a href ="classTimes.html" >Class Times </a></li>
+          </nav>
+
+          <aside>
+            <li><a href = "comp10120.html" > comp10120</a></li>
+             <li><a href = "comp10140.html" >comp10140 </a></li>
+             <li><a href ="comp10150.html" >comp10150 </a></li>
+          </aside>
+
+          <main>
+            <h1>Submission Dates</h1>
+            <p>Information about submission dates will appear here</p>
+            <table border="6">
+              <tr><th>Work Due</th><th>Due Date</th><th>Due in</th></tr>
+              <tr>
+                <td>Reading week Report</td>
+                <td id="date[0]">03/05/2019</td>
+                <td id="dueDays[0]">unknown</td>
+              </tr>
+              <tr>
+                <td>Christmas Reflective Notes</td>
+                <td id ="date[1]">01/01/2020</td>
+                <td id = "dueDays[1]">unknown</td>
+              </tr>
+
+              <tr><td>Another assessment</td>
+                <td id = "date[2]">01/02/2020</td>
+                <td id = "dueDays[2]">unknown</td>
+              </tr>
+            </table>
+
+            <button onclick= "updateDays()">Update Due Days</button>
+          </main>
+
+          <footer>
+            <img src= "1.jpeg" alt = "A deadline Image" width="50" height = "50">
+              <img src= "2.jpeg" alt = "A deadline Image" width="50" height = "50">
+              <img src= "3.jpeg" alt = "A deadline Image" width="50" height = "50">
+                <img src= "4.png" alt = "A deadline Image" width="50" height = "50">
+          </footer>
